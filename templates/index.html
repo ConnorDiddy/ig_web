@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IG Web</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div id="navbar">
+        <h1 id="diagnostics-nav-button" class="nav-btn">Diagnostics</h1>
+        <h1 id="interfaces-nav-button" class="nav-btn">Interfaces</h1>
+        <h1 id="load-software-nav-button" class="nav-btn">Load Software</h1>
+    </div>
+
+    <div id="diagnostics-div" class="hidden">
+        <h1>Diagnostics</h1>
+    </div>
+
+    <div id="interfaces-div" class="hidden">
+        <h1>Interfaces</h1>
+    </div>
+
+    <div id="load-software-div" class="hidden">
+        <h1>Load Software</h1>
+
+        <!-- Add a dropdown menu to select COM port -->
+        <label for="comPort">Select COM Port:</label>
+        <select id="comPort" name="comPort"></select> <br>
+        <input id="binaryForUpload" type="file">
+        <button id="flashButton">Flash</button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>

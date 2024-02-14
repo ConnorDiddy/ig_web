@@ -1,0 +1,29 @@
+.hidden {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(79, 79, 79);
+    justify-content: start;
+}
+
+.nav-btn {
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.nav-btn:hover {
+    background-color: rgb(189, 189, 189);
+    color: black;
+    cursor: pointer;
+}
