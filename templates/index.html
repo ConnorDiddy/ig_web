@@ -1,37 +1,84 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>IG Web</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
 
-<body>
+  <body>
     <div id="navbar">
-        <h1 id="diagnostics-nav-button" class="nav-btn">Diagnostics</h1>
-        <h1 id="interfaces-nav-button" class="nav-btn">Interfaces</h1>
-        <h1 id="load-software-nav-button" class="nav-btn">Load Software</h1>
+      <h1 id="diagnostics-nav-button" class="nav-btn" onclick="showDiagnosticsPage()">Diagnostics</h1>
+      <h1 id="interfaces-nav-button" class="nav-btn" onclick="showInterfacesPage()">Interfaces</h1>
+      <h1 id="load-software-nav-button" class="nav-btn" onclick="showLoadSoftwarePage()">Load Software</h1>
     </div>
 
-    <div id="diagnostics-div" class="hidden">
-        <h1>Diagnostics</h1>
+    <div id="log-div" class="maindiv">
+      <textarea id="log">
+        What is Lorem Ipsum?
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+        industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+        electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+        Aldus PageMaker including versions of Lorem Ipsum.
+
+        Why do we use it?
+        It is a long established fact that a reader will be distracted by the readable content of a page when
+        looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of
+        letters, as opposed to using 'Content here, content here', making it look like readable English. Many
+        desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
+        search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved
+        over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+
+
+        Where does it come from?
+        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical
+        Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
+        Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem
+        Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable
+        source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes
+        of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular
+        during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in
+        section 1.10.32.
+        </textarea
+      >
     </div>
 
-    <div id="interfaces-div" class="hidden">
-        <h1>Interfaces</h1>
+    <div id="loading-container">
+        <h2>Loading software...</h2>
+        <div class="spinner"></div>
     </div>
 
-    <div id="load-software-div" class="hidden">
-        <h1>Load Software</h1>
+    <div id="notification">
+      <p id="notification-text"></p>
+      <button id="close-notification-button" onclick="hideNotification()">Close</button>
+    </div>
 
-        <!-- Add a dropdown menu to select COM port -->
-        <label for="comPort">Select COM Port:</label>
-        <select id="comPort" name="comPort"></select> <br>
-        <input id="binaryForUpload" type="file">
-        <button id="flashButton">Flash</button>
+    <button id="hide-log-button" onclick="hideLog()">Hide Log</button>
+    <button id="show-log-button" onclick="showLog()">Show Log</button>
+
+    <div id="diagnostics-div" class="hidden maindiv">
+      <h1>Diagnostics</h1>
+    </div>
+
+    <div id="interfaces-div" class="hidden maindiv">
+      <h1>Interfaces</h1>
+    </div>
+
+    <div id="load-software-div" class="hidden maindiv">
+      <h1>Load Software</h1>
+
+      <!-- Add a dropdown menu to select COM port -->
+      <label for="comPort">Select COM Port:</label>
+      <select id="comPort" name="comPort"></select>
+      <br />
+      <input id="binaryForUpload" type="file" />
+      <button id="flashButton" onclick="sendFileYmodem()">Flash</button>
     </div>
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-</body>
-
+  </body>
 </html>

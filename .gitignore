@@ -1,0 +1,6 @@
+build
+dist/main.app
+.DS_Store
+*.spec
+*pl
+uploads
